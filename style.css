@@ -7,6 +7,8 @@
 
 body {
   font-family: Arial, sans-serif;
+  height: 100vh;
+  border: orange solid 4px;
 }
 
 /* Navbar styles */
@@ -14,8 +16,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 4em;
-  background: #333;
+  background: #000000;
 }
 
 /* Nav IJBC Logo Image */
@@ -25,6 +26,7 @@ body {
   height: 100%;
   max-height: 100%;
   height: 12vh;
+  padding: .5em 1em;
   /* border: orangered solid 1px; */
 }
 
@@ -36,13 +38,10 @@ body {
 
 /* Main menu */
 .nav-menu {
+position: relative;
   list-style: none;
   display: flex;
   width: 100%;
-}
-
-.nav-menu li {
-  position: relative;
 }
 
 .nav-menu a {
@@ -55,31 +54,17 @@ body {
 
 a {
   transition: .4s ease;
-  /* border: red solid 1px; */
-}
-
-a:hover,
-.dropdown:hover .dropbtn,
-.dropdown-submenu:hover .dropbtn2 {
-  color: red;
 }
 
 /* Dropdown menu */
-.dropdown .dropbtn,
-.dropdown .dropbtn2 {
-  color: greenyellow;
-  font-weight: 600;
-}
 
 .dropdown-menu {
   position: absolute;
   top: 100%;
-  left: 0;
   max-height: 0;
   min-width: 100%;
   opacity: 0;
-  background: #444;
-  /* Ensure  */
+  background: #333;
   transition: transform 0.4s ease, opacity 0.4s ease, max-height 0.4s ease;
   white-space: nowrap;
   /* Prevents wrapping */
@@ -105,16 +90,51 @@ a:hover,
   padding: 10px 20px;
 }
 
-@media (min-width: 1010px) {
+@media (min-width: 958px) {
   /* Hover mode for menu desktop view  */
 
   .navbar {
     height: 12vh
   }
 
+  .nav-menu {
+    position: relative;
+    height: 100%;
+    width: auto;
+    align-items: center;
+    z-index: 99;
+  }
+
+  .nav-menu li {
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 100%;
+    z-index: 1;
+    /* border: red solid 1px; */
+  }
+
+  .dropdown a {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+
+  .dropdown a:hover {
+    background-color: rgba(255, 255, 255, 0.888);
+    transition: background-color 0.8s ease, color 0.8s ease;
+    color: black; 
+  }
+
   .dropdown-menu {
-      visibility: hidden;
-      /*  Makes the dropdown menu invisible but still occupies space in the layout. */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    top: 100%;
+    visibility: hidden;
+    z-index: 10;
+    /* border: yellow solid 2px; */
+    /*  Makes the dropdown menu invisible but still occupies space in the layout. */
   }
 
   /* Show dropdown on hover (for desktop) */
@@ -128,10 +148,26 @@ a:hover,
       transform: translateY(0);
       /* Moves into place smoothly */
   }
+
+  .dropdown-menu a {
+    border-width: 4px 0 4px 4px;
+    border-style: dashed;
+    border-color: transparent;
+  }
+
+  .dropdown-menu a:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+      color: #F99D2C;
+      border-left: 4px solid #F99D2C;
+  }
+
+  .order-list {
+    margin: 0 1em;
+  }
 }
 
 /* Responsive styling for mobile*/
-@media (max-width: 1009px) {
+@media (max-width: 957px) {
 
   .navbar {
       position: relative;
@@ -150,7 +186,7 @@ a:hover,
       opacity: 0;
       overflow: hidden;
       transition: max-height 1s ease-in-out, opacity 0.3s ease;
-      background: #333;
+      background: #222;
   }
 
   .nav-menu.show {
@@ -165,7 +201,7 @@ a:hover,
       /* Ensure full clickable width */
       text-align: center;
       /* Align the content inside */
-      padding: 5px 0;
+      /* padding: 5px 0; */
       /* Adjust padding for better clickability */
   }
 
@@ -174,6 +210,17 @@ a:hover,
       overflow: hidden;
       /* Adding this property ensures a smooth rollout of the dropdown-menu, as the .dropdwon is forced to "stay hidden" UNTIL the nav-menu finishes its animation */
   }
+
+  .dropdown a:active {
+    color:#F99D2C;
+    background: #333;
+  }
+
+  .dropdown.active .dropdown-menu {
+    max-height: 300px;
+    /* Adjust as needed */
+    opacity: 1;
+}
 
   .dropdown-menu {
       width: 100%;
@@ -184,51 +231,13 @@ a:hover,
       opacity: 0;
       overflow: hidden;
       /* Adding this property ensures a smooth rollout of the submenu*/
+      background: #333;
       transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out;
   }
 
-  .dropdown.active .dropdown-menu {
-      max-height: 300px;
-      /* Adjust as needed */
-      opacity: 1;
-  }
-
-  .dropdown-submenu {
-      display: flex;
-      flex-direction: column;
-
-  }
-
-  .submenu {
-      position: static;
-      top: 0;
-      max-height: 0;
-      min-width: 100%;
-      opacity: 0;
-      background: #555;
-      /* Ensure visibility */
-      transition: opacity 0.4s ease, max-height 0.4s ease;
-      white-space: nowrap;
-      /* Prevents wrapping */
-  }
-
-  .submenu li {
-      width: 100%;
-  }
-
-  .submenu a {
-      padding: 10px;
-      display: block;
-  }
-
-  /* Show submenu when active class is added for mobile */
-  .dropdown-submenu.activeSub .submenu {
-      display: block;
-      /* Ensure it appears */
-      max-height: 200px;
-      opacity: 1;
-      transform: translateX(0);
-      transition: transform 0.4s ease, opacity 0.4s ease, max-height 0.4s ease;
+  .dropdown-menu a:active {
+    background: #444;
+    color:#F99D2C
   }
 
   .menu-toggle {
