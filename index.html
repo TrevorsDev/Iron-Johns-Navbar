@@ -4,22 +4,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pure HTML, CSS, JS navbar</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./style.css" class="css">
+  <title>Document</title>
 </head>
 
 <body>
-
+  <header>
   <section class="navbar">
-    <a href="/index.html" class="header-image"><img  src="/img/ironJohnsLogo.png" alt="Iron John's Logo"></a>
-
+    <a href="/index.html" class="header-image"><img  src="./img/ironJohnsLogo.png" alt="Iron John's Logo"></a>
+  
     <ul class="nav-menu">
-      <li class="dropdown"><a href="#">Menus</a></li>
+      <li class="dropdown"><a href="../pages/menu.html">Menus</a></li>
+
       <li class="dropdown">
         <a href="#" class="dropbtn">Locations</a>
         <ul class="dropdown-menu">
           <li><a href="#">Broadway</a></li>
-          <li class="dropdown-submenu"><a href="#" class="dropbtn2">18th Street</a></li>
+          <li><a href="#">18th Street</a></li>
           <li><a href="#">Juniper</a></li>
         </ul>
       </li>
@@ -33,6 +34,7 @@
       </li>
       
       <li class="dropdown"><a href="#">Events</a></li>
+
       <li class="dropdown">
         <a href="#" class="dropbtn">Contact</a>
         <ul class="dropdown-menu">
@@ -41,13 +43,16 @@
           <li><a href="#">Careers</a></li>
           <li><a href="#">Investors</a></li>
         </ul>
-        <li class="order-list"><a href="/pages/order.html" class="button order-btn">Order Online</a>
-                </li> 
+      </li>
+      <!-- order-active is styling specific to mobile viewing -->
+      <li class="dropdown order-list"><a href="/pages/order.html" class="order-active mobile-order order-btn ">Order Online</a>
+      </li> 
     </ul>
-
+  
     <button class="menu-toggle">☰</button>
+  </header>
   </section>
-
+  
   <script src="./script.js"></script>
 </body>
 
