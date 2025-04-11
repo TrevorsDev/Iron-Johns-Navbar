@@ -65,10 +65,6 @@ header {
   width: 100%;
 }
 
-a {
-  transition: .4s ease;
-}
-
 /* Styling for both desktop and mobile dropdown submenu and for ham menu icon */
 
 .dropdown-menu li {
@@ -141,6 +137,11 @@ a {
     height: 100%;
     z-index: 1;
   }
+
+
+a {
+  transition: .4s ease;
+}
 
   .dropdown a {
     display: flex;
